@@ -26,12 +26,15 @@ const deleteNote = (index) => {
 
 const displayNotes = () => {
     show.innerHTML = ''
+    show.innerHTML = '<h3 class="text-center my-3 text-decoration-underline">All Notes</h3>'
     allNotes.map((note, i)=>{
         show.innerHTML += `
-            <div>
-                <p>${i+1}. ${note}</p>
-                <button>Edit</button>
-                <button onclick="deleteNote(${i})">Delete</button>
+            <div class="row my-3">
+                <p class="col-lg-7 col-sm">${i+1}. ${note}</p>
+                <div class="row col-lg-5">
+                    <button class="col mx-2 btn btn btn-info">Edit</button>
+                    <button class="col mx-2 btn btn-sm btn-danger" onclick="deleteNote(${i})">Delete</button>
+                </div>
             </div>
         `
     })
